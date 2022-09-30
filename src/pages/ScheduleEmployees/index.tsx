@@ -1,5 +1,6 @@
 import { TableCell } from "@mui/material";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+import { ScheduledUsersTable } from "../../components/ScheduleUsersTable";
 import { SideBar } from "../../components/SideBar";
 import { CustomTable } from "../../components/Table";
 import { useScheduledUsers } from "../../hooks/useScheduledUsers";
@@ -26,16 +27,7 @@ export function ScheduleEmployees() {
           </div>
         </header>
 
-        <CustomTable users={scheduledUsers}>
-          <TableCell>Id</TableCell>
-          <TableCell>First Name</TableCell>
-          <TableCell>LastName</TableCell>
-          <TableCell>Email</TableCell>
-          <TableCell>Dia de trabalho</TableCell>
-          <TableCell>Das</TableCell>
-          <TableCell>Até</TableCell>
-          <TableCell></TableCell>
-        </CustomTable>
+        <ScheduledUsersTable scheduledUsers={scheduledUsers} />
       </main>
     </Container>
   );

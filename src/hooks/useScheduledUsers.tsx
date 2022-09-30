@@ -8,12 +8,11 @@ import {
 
 import { User } from "../types/user";
 
-interface ScheduledUserData extends User {
+export interface ScheduledUserData extends User {
   week_day: number;
   from: string;
   to: string;
 }
-
 interface ScheduledUsersData {
   scheduledUsers: ScheduledUserData[];
   scheduleUser: (scheduledUserData: ScheduledUserData) => void;
