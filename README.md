@@ -1,10 +1,9 @@
 # SchedulerApp
 
 <div align="center">
-    <img src="https://github.com/Futila/ReactMeals/blob/master/src/.github/header.JPG" width="400px" />
-    <img src="https://github.com/Futila/ReactMeals/blob/master/src/.github/content.JPG" width="400px" />
-    <img src="https://github.com/Futila/ReactMeals/blob/master/src/.github/order.JPG" width="400px" />
-
+    <img src="https://github.com/Futila/ctrl-play-schedulerApp/blob/master/src/.github/home.png" width="400px" />
+    <img src="https://github.com/Futila/ctrl-play-schedulerApp/blob/master/src/.github/add%20user.png" width="400px" />
+    
 </div>
 
 ## 💻 Projeto
