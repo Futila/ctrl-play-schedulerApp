@@ -8,6 +8,7 @@ import { ScheduleModal } from "../../ScheduleModal";
 import { CustomModal } from "../../CustomModal";
 
 import { useUsers } from "../../../hooks/useUsers";
+import { deleUser } from "../../../services/users";
 
 interface TableItemProps {
   user: User;
@@ -26,7 +27,11 @@ export function TableItem({ user }: TableItemProps) {
   };
 
   const handleDeleteUser = (userId: number): void => {
-    asyncDeleteUser(user.id);
+    const deleteUser = window.confirm("You realy want to delete?");
+    if (!deleteUser) {
+      return;
+    }
+    asyncDeleteUser(userId);
   };
 
   return (
