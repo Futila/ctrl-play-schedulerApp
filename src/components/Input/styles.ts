@@ -19,19 +19,3 @@ export const InputElement = styled.div`
     margin-top: 1rem;
   }
 `;
-
-// .input-block + .input-block {
-//   margin-top: 1.4rem;
-// }
-
-// .input-block input {
-//   width: 90%;
-//   max-width: 50rem;
-//   height: 4.6rem;
-//   margin-top: 0.8rem;
-//   border-radius: 0.8rem;
-//   background: var(--color-input-background);
-//   border: 1px solid var(--color-line-in-white);
-//   outline: 0;
-//   padding: 0 1.6rem;
-// }

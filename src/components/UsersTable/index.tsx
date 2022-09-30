@@ -13,15 +13,22 @@ import { ReactNode } from "react";
 
 interface CustomTableProps {
   users: User[];
-  children: ReactNode;
 }
 
-export function CustomTable({ users, children }: CustomTableProps) {
+export function UsersTable({ users }: CustomTableProps) {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
-          <TableRow>{children}</TableRow>
+          <TableRow>
+            <TableCell>Id</TableCell>
+            <TableCell>First Name</TableCell>
+            <TableCell>LastName</TableCell>
+            <TableCell>Gender</TableCell>
+            <TableCell>Email</TableCell>
+            <TableCell>Phone</TableCell>
+            <TableCell></TableCell>
+          </TableRow>
         </TableHead>
         <TableBody>
           {users.map((user) => (

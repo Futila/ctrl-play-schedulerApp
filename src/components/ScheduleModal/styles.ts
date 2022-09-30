@@ -43,7 +43,8 @@ export const Container = styled.form`
     }
   }
 
-  > label {
-    margin-bottom: rem;
+  label {
+    display: block;
+    margin-top: 1.4rem;
   }
 `;

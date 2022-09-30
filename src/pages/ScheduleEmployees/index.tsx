@@ -1,8 +1,6 @@
-import { TableCell } from "@mui/material";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { ScheduledUsersTable } from "../../components/ScheduleUsersTable";
 import { SideBar } from "../../components/SideBar";
-import { CustomTable } from "../../components/Table";
 import { useScheduledUsers } from "../../hooks/useScheduledUsers";
 
 import { Container } from "./styles";

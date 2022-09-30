@@ -9,7 +9,7 @@ import {
 import { User } from "../types/user";
 
 export interface ScheduledUserData extends User {
-  week_day: number;
+  week_day: string;
   from: string;
   to: string;
 }

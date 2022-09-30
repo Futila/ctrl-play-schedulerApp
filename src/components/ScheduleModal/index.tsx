@@ -1,8 +1,8 @@
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import Modal from "react-modal";
 import { Container } from "./styles";
 import closeImg from "../../assets/close.svg";
 
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { User } from "../../types/user";
 import { Select } from "../Select";
 import { useScheduledUsers } from "../../hooks/useScheduledUsers";
@@ -17,7 +17,7 @@ interface ScheduleModalProps {
 export function ScheduleModal({ user, onRequestClose }: ScheduleModalProps) {
   const { scheduleUser } = useScheduledUsers();
   const [scheduleItems, setScheduleItems] = useState({
-    week_day: 0,
+    week_day: "",
     from: "",
     to: "",
   });
@@ -34,12 +34,10 @@ export function ScheduleModal({ user, onRequestClose }: ScheduleModalProps) {
     });
   }, [user]);
 
-  const handleScheduleInputsChange = (event: ChangeEvent) => {
-    const target = event.target as HTMLInputElement;
-
+  const handleScheduleInputsChange = (field: string, value: string) => {
     setScheduleItems({
       ...scheduleItems,
-      [target.name]: target.value,
+      [field]: value,
     });
   };
 
@@ -52,6 +50,7 @@ export function ScheduleModal({ user, onRequestClose }: ScheduleModalProps) {
     };
 
     scheduleUser(scheduleUserData);
+
     onRequestClose();
   };
 
@@ -84,15 +83,17 @@ export function ScheduleModal({ user, onRequestClose }: ScheduleModalProps) {
           label="Dia da semana"
           name="week_day"
           value={scheduleItems.week_day}
-          onChange={handleScheduleInputsChange}
+          onChange={(e) =>
+            handleScheduleInputsChange("week_day", e.target.value)
+          }
           options={[
-            { value: "0", label: "Domingo" },
-            { value: "1", label: "Segunda-feira" },
-            { value: "2", label: "Terça-feira" },
-            { value: "3", label: "Quarta-feira" },
-            { value: "4", label: "Quinta-feira" },
-            { value: "5", label: "Sexta-feira" },
-            { value: "6", label: "Sábado" },
+            { value: "Domingo", label: "Domingo" },
+            { value: "Segunda-feira", label: "Segunda-feira" },
+            { value: "Terça-feira", label: "Terça-feira" },
+            { value: "Quarta-feira", label: "Quarta-feira" },
+            { value: "Quinta-feira", label: "Quinta-feira" },
+            { value: "Sexta-feira", label: "Sexta-feira" },
+            { value: "Sábado", label: "Sábado" },
           ]}
         />
         <div className="input-block">
@@ -101,7 +102,7 @@ export function ScheduleModal({ user, onRequestClose }: ScheduleModalProps) {
             type="time"
             name="from"
             value={scheduleItems.from}
-            onChange={handleScheduleInputsChange}
+            onChange={(e) => handleScheduleInputsChange("from", e.target.value)}
           />
         </div>
         <div className="input-block">
@@ -110,7 +111,7 @@ export function ScheduleModal({ user, onRequestClose }: ScheduleModalProps) {
             type="time"
             name="to"
             value={scheduleItems.to}
-            onChange={handleScheduleInputsChange}
+            onChange={(e) => handleScheduleInputsChange("to", e.target.value)}
           />
         </div>
 
