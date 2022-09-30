@@ -9,25 +9,19 @@ import Paper from "@mui/material/Paper";
 import { User } from "../../types/user";
 
 import { TableItem } from "./TableItem";
+import { ReactNode } from "react";
 
 interface CustomTableProps {
   users: User[];
+  children: ReactNode;
 }
 
-export function CustomTable({ users }: CustomTableProps) {
+export function CustomTable({ users, children }: CustomTableProps) {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
-          <TableRow>
-            <TableCell>Id</TableCell>
-            <TableCell>First Name</TableCell>
-            <TableCell>LastName</TableCell>
-            <TableCell>Gender</TableCell>
-            <TableCell>Email</TableCell>
-            <TableCell>Phone</TableCell>
-            <TableCell></TableCell>
-          </TableRow>
+          <TableRow>{children}</TableRow>
         </TableHead>
         <TableBody>
           {users.map((user) => (

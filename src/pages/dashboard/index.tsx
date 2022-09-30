@@ -7,6 +7,7 @@ import { SideBar } from "../../components/SideBar";
 import { useUsers } from "../../hooks/useUsers";
 
 import { Container } from "./styles";
+import { TableCell } from "@mui/material";
 
 export function Dashboard() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,13 +28,19 @@ export function Dashboard() {
         </header>
 
         <form action="">
-          <Input
-            placeholder="Buscar funcionário"
-            label="Buscar funcionário"
-            name="employee"
-          />
-          <CustomTable users={users} />
+          <input placeholder="Buscar funcionário" name="employee" />
+          <button>Buscar</button>
         </form>
+
+        <CustomTable users={users}>
+          <TableCell>Id</TableCell>
+          <TableCell>First Name</TableCell>
+          <TableCell>LastName</TableCell>
+          <TableCell>Gender</TableCell>
+          <TableCell>Email</TableCell>
+          <TableCell>Phone</TableCell>
+          <TableCell></TableCell>
+        </CustomTable>
       </main>
     </Container>
   );

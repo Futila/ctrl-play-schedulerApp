@@ -18,24 +18,22 @@ export function TableItem({ user }: TableItemProps) {
   const toggleModal = (type: string) => {
     if (type === "custom-modal") {
       setIsOpenCustomModal(!isOpenCustomModal);
-      return;
     }
 
     if (type === "schedule-modal") {
       setIsOpenScheduleModal(!isOpenScheduleModal);
-      return;
     }
   };
   return (
     <>
-      {isOpenCustomModal && !isOpenScheduleModal && (
+      {!isOpenScheduleModal && isOpenCustomModal && (
         <CustomModal
           user={user}
           type="edit"
           onRequestClose={() => toggleModal("custom-modal")}
         />
       )}
-      {isOpenScheduleModal && !isOpenCustomModal && (
+      {!isOpenCustomModal && isOpenScheduleModal && (
         <ScheduleModal
           user={user}
           onRequestClose={() => toggleModal("custom-modal")}
