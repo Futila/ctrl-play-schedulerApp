@@ -29,6 +29,28 @@ export const ScheduledUsersContext = createContext<ScheduledUsersData>(
 export function ScheduledUsersProvider({ children }: ScheduledUsersProps) {
   const [scheduledUsers, setScheduledUsers] = useState<ScheduledUserData[]>([]);
 
+  useEffect(() => {
+    let scheduledUsersStorage = localStorage.getItem("scheduledUsers");
+
+    if (typeof scheduledUsersStorage === "string") {
+      const scheduledUsersParsed = JSON.parse(scheduledUsersStorage);
+
+      setScheduledUsers(scheduledUsersParsed);
+    }
+  }, []);
+
+  useEffect(() => {
+    let scheduledUsersStorage = localStorage.getItem("scheduledUsers");
+
+    if (typeof scheduledUsersStorage === "string") {
+      const scheduledUsersParsed: [] = JSON.parse(scheduledUsersStorage);
+
+      if (scheduledUsersParsed.length < scheduledUsers.length) {
+        localStorage.setItem("scheduledUsers", JSON.stringify(scheduledUsers));
+      }
+    }
+  }, [scheduledUsers]);
+
   function scheduleUser(scheduledUserData: ScheduledUserData) {
     setScheduledUsers([scheduledUserData, ...scheduledUsers]);
   }
